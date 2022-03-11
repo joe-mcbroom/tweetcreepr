@@ -6,6 +6,9 @@ import Loading from './components/Loading/Loading';
 function App() {
   const [name, setName] = useState('Joe');
   const [isLoading] = useState(true);
+  const [loaderType, setLoaderType] = useState('squares');
+
+  const setLoader = ({ target: { value } }) => setLoaderType(value);
 
   return (
     <Router>
@@ -13,15 +16,32 @@ function App() {
         <header className={styles['App-header']}>This is the header</header>
         <main>
           <Loading
-            type="trail"
+            type={loaderType}
             style={{ visibility: isLoading ? 'visible' : 'none' }}
           />
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <p>Hello {name}</p>
+          <div className="loader-chooser" onChange={setLoader}>
+            <h3>Choose Loader Type</h3>
+
+            <input
+              type="radio"
+              name="loader"
+              value="squares"
+              defaultChecked="true"
+            />
+            <label htmlFor="squares">Squares</label>
+            <input type="radio" name="loader" value="trail" />
+            <label htmlFor="trail">Trail</label>
+            <input type="radio" name="loader" value="car" />
+            <label htmlFor="car">Car</label>
+          </div>
+          <div className="name-input">
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <p>Hello {name}</p>
+          </div>
         </main>
       </div>
     </Router>

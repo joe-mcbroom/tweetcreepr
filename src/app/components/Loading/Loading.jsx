@@ -1,12 +1,14 @@
 import React from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
 
-import squaresLoader from '../../assets/loaders/squares-loader.json';
-import trailLoader from '../../assets/loaders/trail-loader.json';
+import squares from '../../assets/loaders/squares-loader.json';
+import trail from '../../assets/loaders/trail-loader.json';
+import car from '../../assets/loaders/car-loader.json';
 
 const LOADERS = {
-  squares: squaresLoader,
-  trail: trailLoader,
+  squares,
+  trail,
+  car,
 };
 
 function Loading({ type }) {
