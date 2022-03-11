@@ -1,54 +1,28 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import styles from './App.module.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Welcome from './components/Welcome/Welcome';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Loading from './components/Loading/Loading';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [name, setName] = useState('Joe');
+  const [isLoading] = useState(true);
 
   return (
     <Router>
       <div className={styles.App}>
-        <header className={styles['App-header']}>
-          <img src={logo} className={styles['App-logo']} alt="logo" />
-          <Welcome />
-          <p>
-            <button onClick={() => setCount((count) => count + 1)}>
-              count is: {count}
-            </button>
-          </p>
-          <p>
-            Edit <code>App.jsx</code> and save to test HMR updates.
-          </p>
-          <p>
-            <a
-              className={styles['App-link']}
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-            {' | '}
-            <a
-              className={styles['App-link']}
-              href="https://vitejs.dev/guide/features.html"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Vite Docs
-            </a>
-          </p>
-          <Switch>
-            <Route path="/about">
-              <main>About</main>
-            </Route>
-            <Route path="/">
-              <main>Home</main>
-            </Route>
-          </Switch>
-        </header>
+        <header className={styles['App-header']}>This is the header</header>
+        <main>
+          <Loading
+            type="trail"
+            style={{ visibility: isLoading ? 'visible' : 'none' }}
+          />
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <p>Hello {name}</p>
+        </main>
       </div>
     </Router>
   );
