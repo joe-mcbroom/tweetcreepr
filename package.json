@@ -10,7 +10,6 @@
     "client:build": "vite build",
     "build": "npm run server:build && npm run client:build",
     "serve": "vite preview",
-    "prepare": "husky install",
     "test": "prettier --check . && eslint . && stylelint \"**/*.css\"",
     "start": "node dist/server.js"
   },
@@ -18,18 +17,12 @@
     "@babel/cli": "^7.15.7",
     "@babel/core": "^7.15.7",
     "@vitejs/plugin-react": "^1.0.2",
-    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
     "concurrently": "^6.2.1",
     "http-proxy-middleware": "^2.0.1",
-    "husky": "^7.0.2",
     "nodemon": "^2.0.13",
     "prettier": "2.4.1",
     "prop-types": "^15.7.2",
-    "rimraf": "^3.0.2",
-    "stylelint": "^13.13.1",
-    "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-standard": "^22.0.0",
     "vite": "^2.5.10"
   },
   "dependencies": {
